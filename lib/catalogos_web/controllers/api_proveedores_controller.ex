@@ -11,20 +11,20 @@ defmodule CatalogosWeb.ApiProveedoresController do
     proveedores = ApiProvs.list_proveedores()
     render(conn, "index.json", proveedores: proveedores)
   end
-
-  def create(conn, %{"access_token" => access_token, "api_proveedores" => api_proveedores_params}) do
-    {:ok, claims} = Guardian.decode_and_verify(access_token)
-    if  claims do
+                    #"access_token" => access_token
+  def create(conn, %{"api_proveedores" => api_proveedores_params}) do
+    #{:ok, claims} = Guardian.decode_and_verify(access_token)
+    #if  claims do
     with {:ok, %ApiProveedores{} = api_proveedores} <- ApiProvs.create_api_proveedores(api_proveedores_params) do
       conn
       |> put_status(:created)
       |> put_resp_header("location", Routes.api_proveedores_path(conn, :show, api_proveedores))
       |> render("show.json", api_proveedores: api_proveedores)
     end
-  else
-    body = Jason.encode!(%{error: "unauthorized"})
-    conn |> send_resp(401, body)
-    end
+  #else
+   # body = Jason.encode!(%{error: "unauthorized"})
+   # conn |> send_resp(401, body)
+   # end
   end
 
   def show(conn, %{"id" => id}) do
