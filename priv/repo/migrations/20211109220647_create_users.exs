@@ -3,9 +3,9 @@ defmodule Catalogos.Repo.Migrations.CreateUsers do
 
   def change do
     create table(:users) do
-      add :nombre, :string
-      add :email, :string
-      add :password, :string
+      add :nombre, :string, null: false
+      add :email, :string, null: false
+      add :password, :string, null: false
 
       timestamps()
     end

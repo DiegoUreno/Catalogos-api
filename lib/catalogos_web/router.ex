@@ -12,6 +12,18 @@ defmodule CatalogosWeb.Router do
   pipeline :api do
     plug :accepts, ["json"]
   end
+  pipeline :auth do
+    plug Catalogos.Guardian.AuthPipeline
+  end
+
+  scope "/api", CatalogosWeb do
+    pipe_through [:api, :auth]
+
+
+    post "/session/refresh", SessionController, :refresh
+    post "/session/refresh", SessionController, :delete
+
+  end
 
   scope "/", CatalogosWeb do
     pipe_through :browser
@@ -31,7 +43,11 @@ defmodule CatalogosWeb.Router do
    scope "/api", CatalogosWeb do
      pipe_through :api
 
-     resources "/users", UserController, except: [:new, :edit]
+
+    post "/users", UserController, :register
+    get "/session/new", SessionController, :index
+    post "/session/new", SessionController, :new
+
      resources "/dependencias", ApiDependenciasController, except: [:new, :edit]
      resources "/proveedores", ApiProveedoresController, except: [:new, :edit]
    end
