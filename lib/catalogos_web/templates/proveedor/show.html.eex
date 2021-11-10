@@ -1,0 +1,64 @@
+<h1>Show proveedor</h1>
+
+<ul>
+
+  <li>
+    <strong>Nombre:</strong>
+    <%= @proveedor.nombre %>
+  </li>
+
+  <li>
+    <strong>Rfc:</strong>
+    <%= @proveedor.rfc %>
+  </li>
+
+  <li>
+    <strong>Tipo:</strong>
+    <%= @proveedor.tipo %>
+  </li>
+
+  <li>
+    <strong>Vigente:</strong>
+    <%= @proveedor.vigente %>
+  </li>
+
+  <li>
+    <strong>Fecha de vigencia:</strong>
+    <%= @proveedor.fechaVigencia %>
+  </li>
+
+  <li>
+    <strong>Representante legal:</strong>
+    <%= @proveedor.representanteLegal %>
+  </li>
+
+  <li>
+    <strong>Activo:</strong>
+    <%= @proveedor.activo %>
+  </li>
+
+  <li>
+    <strong>Procedencia:</strong>
+    <%= @proveedor.procedencia %>
+  </li>
+
+  <li>
+    <strong>Cedula:</strong>
+    <%= @proveedor.cedula %>
+  </li>
+
+  <li>
+    <strong>Domicilio:</strong>
+    <%= @proveedor.domicilio %>
+  </li>
+
+  <li>
+    <strong>Telefono:</strong>
+    <%= @proveedor.telefono %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.proveedor_path(@conn, :edit, @proveedor) %></span>
+<br>
+<span><%= link "Back", to: Routes.proveedor_path(@conn, :index) %></span>

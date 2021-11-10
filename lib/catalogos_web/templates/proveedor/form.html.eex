@@ -1,0 +1,55 @@
+<%= form_for @changeset, @action, fn f -> %>
+  <%= if @changeset.action do %>
+    <div class="alert alert-danger">
+      <p>Uy! parece que hay un error, verifica los campos!</p>
+    </div>
+  <% end %>
+
+  <%= label f, :nombre %>
+  <%= text_input f, :nombre %>
+  <%= error_tag f, :nombre %>
+
+  <%= label f, :rfc %>
+  <%= text_input f, :rfc %>
+  <%= error_tag f, :rfc %>
+
+  <%= label f, :tipo %>
+  <%= text_input f, :tipo %>
+  <%= error_tag f, :tipo %>
+
+  <%= label f, :vigente %>
+  <%= number_input f, :vigente %>
+  <%= error_tag f, :vigente %>
+
+  <%= label f, :fechaVigencia %>
+  <%= text_input f, :fechaVigencia %>
+  <%= error_tag f, :fechaVigencia %>
+
+  <%= label f, :representanteLegal %>
+  <%= text_input f, :representanteLegal %>
+  <%= error_tag f, :representanteLegal %>
+
+  <%= label f, :activo %>
+  <%= text_input f, :activo %>
+  <%= error_tag f, :activo %>
+
+  <%= label f, :procedencia %>
+  <%= text_input f, :procedencia %>
+  <%= error_tag f, :procedencia %>
+
+  <%= label f, :cedula %>
+  <%= text_input f, :cedula %>
+  <%= error_tag f, :cedula %>
+
+  <%= label f, :domicilio %>
+  <%= text_input f, :domicilio %>
+  <%= error_tag f, :domicilio %>
+
+  <%= label f, :telefono %>
+  <%= text_input f, :telefono %>
+  <%= error_tag f, :telefono %>
+
+  <div>
+    <%= submit "Guardar" %>
+  </div>
+<% end %>

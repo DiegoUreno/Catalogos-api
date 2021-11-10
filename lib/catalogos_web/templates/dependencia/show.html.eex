@@ -1,0 +1,38 @@
+<h1>Show dependencia</h1>
+
+<ul>
+
+  <li>
+    <strong>Nombre:</strong>
+    <%= @dependencia.nombre %>
+  </li>
+
+  <li>
+    <strong>Numero:</strong>
+    <%= @dependencia.numero %>
+  </li>
+
+  <li>
+    <strong>Tipo:</strong>
+    <%= @dependencia.tipo %>
+  </li>
+
+  <li>
+    <strong>Nivel:</strong>
+    <%= @dependencia.nivel %>
+  </li>
+
+  <li>
+    <strong>Domicilio:</strong>
+    <%= @dependencia.domicilio %>
+  </li>
+  <li>
+    <strong>Activo:</strong>
+    <%= @dependencia.activo %>
+  </li>
+
+</ul>
+
+<span><%= link "Editar", to: Routes.dependencia_path(@conn, :edit, @dependencia) %></span>
+<br>
+<span><%= link "Regresar", to: Routes.dependencia_path(@conn, :index) %></span>

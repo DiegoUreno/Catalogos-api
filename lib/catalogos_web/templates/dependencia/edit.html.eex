@@ -1,0 +1,5 @@
+<h1>Editardependencia</h1>
+
+<%= render "form.html", Map.put(assigns, :action, Routes.dependencia_path(@conn, :update, @dependencia)) %>
+
+<span><%= link "Regresar", to: Routes.dependencia_path(@conn, :index) %></span>

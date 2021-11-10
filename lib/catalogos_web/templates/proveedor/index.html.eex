@@ -1,0 +1,44 @@
+<h1>Proveedores</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Rfc</th>
+      <th>Representante legal</th>
+      <th>Domicilio</th>
+      <th>Telefono</th>
+      <th>Activo</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+  <%= link "Anterior", to: Routes.proveedor_path(@conn, :index, page: @page.page_number - 1) %>
+    <%= link "Siguiente" , to: Routes.proveedor_path(@conn, :index, page: @page.page_number + 1) %>
+<%= for proveedor <- @proveedor do %>
+    <tr>
+      <td><%= proveedor.nombre %></td>
+      <td><%= proveedor.rfc %></td>
+      <td><%= proveedor.representanteLegal %></td>
+      <td><%= proveedor.domicilio %></td>
+      <td><%= proveedor.telefono %></td>
+      <td><%= proveedor.activo %></td>
+
+
+      <td>
+        <span><%= link "Ver", to: Routes.proveedor_path(@conn, :show, proveedor) %></span>
+        <span><%= link "Editar", to: Routes.proveedor_path(@conn, :edit, proveedor) %></span>
+
+            <%= if proveedor.activo == 1 do %>
+        <span><%= link "Desactivar", to: Routes.proveedor_path(@conn, :desactivar, proveedor), method: :patch, data: [confirm: "¿Estas seguro?"] %></span>
+            <% else %>
+        <span><%= link "Activar", to: Routes.proveedor_path(@conn, :activar, proveedor), method: :put, data: [confirm: "¿Estas seguro?"] %></span>
+            <% end %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "Agregar nuevos proveedor", to: Routes.proveedor_path(@conn, :new) %></span>

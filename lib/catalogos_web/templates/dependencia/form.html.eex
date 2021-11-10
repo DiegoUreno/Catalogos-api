@@ -1,0 +1,61 @@
+<%= form_for @changeset, @action, fn f -> %>
+  <%= if @changeset.action do %>
+    <div class="alert alert-danger">
+      <p>Algo salió mal, revisa el campo nuevamente. </p>
+    </div>
+  <% end %>
+
+  <%= label f, :nombre %>
+  <%= text_input f, :nombre %>
+  <%= error_tag f, :nombre %>
+
+  <%= label f, :numero %>
+  <%= number_input f, :numero %>
+  <%= error_tag f, :numero %>
+
+  <%= label f, :tipo %>
+  <%= text_input f, :tipo %>
+  <%= error_tag f, :tipo %>
+
+<%= label f, :abreviatura %>
+  <%= text_input f, :abreviatura %>
+  <%= error_tag f, :abreviatura %>
+
+  <%= label f, :sector  %>
+  <%= number_input f, :sector %>
+  <%= error_tag f, :sector %>
+
+  <%= label f, :activo %>
+  <%= number_input f, :activo %>
+  <%= error_tag f, :activo %>
+
+
+  <%= label f, :nivel %>
+  <%= select f, :nivel, ["", "DIR","SEC"] %>
+  <%= error_tag f, :nivel %>
+
+  <%= label f, :telefono %>
+  <%= text_input f, :telefono %>
+  <%= error_tag f, :telefono %>
+
+  <%= label f, :domicilio %>
+  <%= text_input f, :domicilio %>
+  <%= error_tag f, :domicilio %>
+
+  <%= label f, :fax %>
+  <%= text_input f, :fax %>
+  <%= error_tag f, :fax %>
+
+  <%= label f, :email %>
+  <%= text_input f, :email %>
+  <%= error_tag f, :email %>
+
+  <%= label f, :administrativo %>
+  <%= text_input f, :administrativo %>
+  <%= error_tag f, :administrativo%>
+
+
+  <div>
+    <%= submit "Guardar" %>
+  </div>
+<% end %>

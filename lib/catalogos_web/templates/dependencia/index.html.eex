@@ -1,0 +1,44 @@
+<h1 class="text-indigo-500 text-5xl font-bold text-center">Dependencias</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Numero</th>
+      <th>Nombre</th>
+      <th>Telefono</th>
+      <th>Nivel</th>
+      <th>Email</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= link "Prev Pag", to: Routes.dependencia_path(@conn, :index, page: @page.page_number - 1) %>
+<%= link "Next Page", to: Routes.dependencia_path(@conn, :index, page: @page.page_number + 1) %>
+
+<%= for dependencia <- @dependencia do %>
+    <tr>
+      <td><%= dependencia.numero %></td>
+      <td><%= dependencia.nombre %></td>
+      <td><%= dependencia.telefono %></td>
+      <td><%= dependencia.nivel %></td>
+      <td><%= dependencia.email %></td>
+      <td><%= dependencia.activo %></td>
+
+      <td>
+        <span><%= link "Ver", to: Routes.dependencia_path(@conn, :show, dependencia) %></span>
+
+        <br>
+              <%= if dependencia.activo == 1 do %>
+        <span><%= link "Editar", to: Routes.dependencia_path(@conn, :edit, dependencia) %></span>
+        <span><%= link "Desactivar", to: Routes.dependencia_path(@conn, :desactiv, dependencia), method: :patch, data: [confirm: "¿Estas seguro?"] %></span>
+              <% else %>
+        <span><%= link "Activar", to: Routes.dependencia_path(@conn, :activar, dependencia), method: :put, data: [confirm: "¿Estas seguro?"] %></span>
+              <% end %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "Agregar una dependencia", to: Routes.dependencia_path(@conn, :new) %></span>
