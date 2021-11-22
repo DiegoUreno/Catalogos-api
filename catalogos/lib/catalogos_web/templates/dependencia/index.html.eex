@@ -13,8 +13,8 @@
     </tr>
   </thead>
   <tbody>
-<%= link "Prev Pag", to: Routes.dependencia_path(@conn, :index, page: @page.page_number - 1) %>
-<%= link "Next Page", to: Routes.dependencia_path(@conn, :index, page: @page.page_number + 1) %>
+<%= link "Anterior  ", to: Routes.dependencia_path(@conn, :index, page: @page.page_number - 1) %>
+<%= link "Siguiente ", to: Routes.dependencia_path(@conn, :index, page: @page.page_number + 1) %>
 
 <%= for dependencia <- @dependencia do %>
     <tr>

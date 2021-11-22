@@ -46,6 +46,7 @@ defmodule Catalogos.MixProject do
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
       {:scrivener_ecto, "~> 2.0"},
+      {:pow, "~> 1.0.26"},
     ]
   end
 
